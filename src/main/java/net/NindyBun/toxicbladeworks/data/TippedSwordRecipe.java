@@ -47,10 +47,10 @@ public class TippedSwordRecipe extends CustomRecipe {
         PotionContents potioncontents = swordCopy.get(ModDataComponents.POTION_DATA.get());
         if (potioncontents != null) {
             potioncontents.addPotionTooltip(swordCopy.getTooltipLines(
-                    Item.TooltipContext.EMPTY,
+                    Item.TooltipContext.of(Minecraft.getInstance().level),
                     Minecraft.getInstance().player,
-                    TooltipFlag.NORMAL
-            )::add, 1.0F, Item.TooltipContext.EMPTY.tickRate());
+                    net.neoforged.neoforge.client.ClientTooltipFlag.of(Minecraft.getInstance().options.advancedItemTooltips ? TooltipFlag.Default.ADVANCED : TooltipFlag.Default.NORMAL)
+            )::add, 1.0F, Item.TooltipContext.of(Minecraft.getInstance().level).tickRate());
         }
 
         return swordCopy;
