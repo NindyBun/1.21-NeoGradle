@@ -1,8 +1,10 @@
 package net.NindyBun.toxicbladeworks;
 
+import net.NindyBun.toxicbladeworks.data.Generator;
 import net.NindyBun.toxicbladeworks.decorators.PotionBarDecorator;
 import net.NindyBun.toxicbladeworks.registries.ModCreativeModTabs;
 import net.NindyBun.toxicbladeworks.registries.ModDataComponents;
+import net.NindyBun.toxicbladeworks.registries.ModRecipes;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.item.*;
@@ -36,7 +38,8 @@ public class ToxicBladeworks
 
         ModDataComponents.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
-        NeoForge.EVENT_BUS.register(this);
+        ModRecipes.register(modEventBus);
+        modEventBus.addListener(Generator::gatherData);
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent

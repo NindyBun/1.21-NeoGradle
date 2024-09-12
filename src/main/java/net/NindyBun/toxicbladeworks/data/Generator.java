@@ -9,6 +9,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import java.util.concurrent.CompletableFuture;
 
 public class Generator {
+
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper helper = event.getExistingFileHelper();
@@ -16,5 +17,7 @@ public class Generator {
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
         generator.addProvider(event.includeClient(), new GeneratorLang(output, "en_us"));
+
+        generator.addProvider(event.includeServer(), new GeneratorRecipe(output, provider));
     }
 }
