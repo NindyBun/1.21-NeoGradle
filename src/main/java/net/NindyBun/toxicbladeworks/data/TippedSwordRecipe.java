@@ -44,14 +44,6 @@ public class TippedSwordRecipe extends CustomRecipe {
 
         ItemStack swordCopy = sword.copy();
         swordCopy.set(ModDataComponents.POTION_DATA.get(), potion.get(DataComponents.POTION_CONTENTS));
-        PotionContents potioncontents = swordCopy.get(ModDataComponents.POTION_DATA.get());
-        if (potioncontents != null) {
-            potioncontents.addPotionTooltip(swordCopy.getTooltipLines(
-                    Item.TooltipContext.of(Minecraft.getInstance().level),
-                    Minecraft.getInstance().player,
-                    net.neoforged.neoforge.client.ClientTooltipFlag.of(Minecraft.getInstance().options.advancedItemTooltips ? TooltipFlag.Default.ADVANCED : TooltipFlag.Default.NORMAL)
-            )::add, 1.0F, Item.TooltipContext.of(Minecraft.getInstance().level).tickRate());
-        }
 
         return swordCopy;
     }
