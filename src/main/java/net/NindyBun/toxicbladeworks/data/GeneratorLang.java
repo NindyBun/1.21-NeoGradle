@@ -12,5 +12,6 @@ public class GeneratorLang extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup." + ToxicBladeworks.MODID + ".creativeTab", "Toxic Bladeworks");
+        add("tooltip."+ToxicBladeworks.MODID+".potion_volume", "%d/250mb");
     }
 }

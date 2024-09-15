@@ -43,7 +43,7 @@ public class TippedSwordRecipe extends CustomRecipe {
         if (!(sword.getItem() instanceof SwordItem)) return ItemStack.EMPTY;
 
         ItemStack swordCopy = sword.copy();
-        swordCopy.set(ModDataComponents.POTION_DATA.get(), potion.get(DataComponents.POTION_CONTENTS));
+        swordCopy.set(ModDataComponents.POTION_DATA.get(), new ModDataComponents.Potion_Data(potion.get(DataComponents.POTION_CONTENTS), 250));
 
         return swordCopy;
     }
