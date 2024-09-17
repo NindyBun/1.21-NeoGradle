@@ -48,7 +48,7 @@ public class ToxicBladeworks
     public void itemTooltip(ItemTooltipEvent event) {
         ModDataComponents.Potion_Data potionData = event.getItemStack().get(ModDataComponents.POTION_DATA.get());
         if (potionData != null) {
-            potionData.potionContents().addPotionTooltip(event.getToolTip()::add, 1.0F, event.getContext().tickRate());
+            potionData.potionContents().addPotionTooltip(event.getToolTip()::add, 1.0F/8, event.getContext().tickRate());
             event.getToolTip().add(Component.translatable("tooltip."+ToxicBladeworks.MODID+".potion_volume", potionData.volume()).withStyle(ChatFormatting.AQUA));
         }
     }
@@ -92,7 +92,6 @@ public class ToxicBladeworks
             event.register(Items.GOLDEN_SWORD, PotionBarDecorator.INSTANCE);
             event.register(Items.DIAMOND_SWORD, PotionBarDecorator.INSTANCE);
             event.register(Items.NETHERITE_SWORD, PotionBarDecorator.INSTANCE);
-
         }
     }
 }

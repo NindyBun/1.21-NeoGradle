@@ -17,6 +17,7 @@ public class Generator {
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
         generator.addProvider(event.includeClient(), new GeneratorLang(output, "en_us"));
+        generator.addProvider(event.includeClient(), new GeneratorItemModel(output, helper));
 
         generator.addProvider(event.includeServer(), new GeneratorRecipe(output, provider));
     }
